@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人网站</title>
+    <style>
+        /* --- 全局重置与基础样式 --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; max-width: 1200px; margin: 0 auto; color: #333; }
+        .box { border: 2px solid #333; display: flex; justify-content: center; align-items: center; }
+        .section-header { text-align: left; font-size: 1.5rem; margin-bottom: 10px; font-weight: normal; }
+
+        /* --- 1. 顶部导航栏 (Header) --- */
+        header {
+            background-color: #4a4a4a;
+            color: #ccc;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            height: 160px;
+        }
+        .avatar { width: 80px; height: 80px; background: white; border-radius: 50%; }
+        .menu-icon { display: flex; flex-direction: column; gap: 6px; width: 40px; }
+        .menu-icon span { height: 4px; background: #333; width: 100%; display: block; }
+        .header-text { position: absolute; bottom: 15px; left: 40px; color: #ddd; font-size: 1rem; }
+
+        /* --- 2. 导航模块 (About Me / Video / Work) --- */
+        .nav-section {
+            background-color: #dcdcdc;
+            padding: 40px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .nav-card {
+            background-color: #4a9ab5; /* 图中的蓝色 */
+            color: black;
+            width: 180px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            border: 2px solid #333;
+            text-align: center;
+        }
+
+        /* --- 3. 个人能力与简介 (Personal Ability & Profile) --- */
+        .profile-section {
+            padding: 40px;
+        }
+        .ability-block, .profile-block {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .text-lines { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+        .text-line { height: 4px; background: #333; width: 100%; }
+        .text-line.short { width: 60%; }
+        .square-box { width: 120px; height: 120px; border: 2px solid #333; flex-shrink: 0; }
+        
+        .profile-block { flex-direction: row-reverse; } /* 按照图中左侧方块，右侧文字 */
+
+        /* --- 4. 视频展示区 (Video editing) --- */
+        .video-section {
+            background-color: #eaeaea;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .video-player {
+            width: 300px;
+            height: 180px;
+            border: 2px solid #333;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .play-icon { font-size: 4rem; }
+
+        /* --- 5. 作品/世界观 (Work/Worldview) --- */
+        .work-section {
+            background-color: #4a4a4a;
+            color: white;
+            padding: 40px;
+        }
+        .work-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .col-1 div, .col-2 div, .col-3 div {
+            border: 2px solid #333; 
+            width: 100%;
+            aspect-ratio: 1 / 1.2; /* 竖向矩形 */
+            background-color: #333; 
+            margin-bottom: 20px;
+        }
+        .col-2 div { border-radius: 50%; aspect-ratio: 1/1; } /* 圆形 */
+        .col-3 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .col-3 div { aspect-ratio: 1/1.3; }
+
+        /* --- 6. 底部 (Footer) --- */
+        footer {
+            background-color: #4a4a4a;
+            padding: 30px 40px;
+        }
+        footer h1 { font-size: 4rem; color: #222; }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .nav-section { flex-direction: column; align-items: center; }
+            .work-grid { grid-template-columns: 1fr; }
+            .col-3 { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. 头部区域 -->
+    <header>
+        <div class="avatar"></div>
+        <div class="menu-icon">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="header-text">Contact, Personal Information</div>
+    </header>
+
+    <!-- 2. 导航卡片 -->
+    <section class="nav-section">
+        <div class="nav-card">About Me</div>
+        <div class="nav-card">Video editing</div>
+        <div class="nav-card">Work/Worldview<br>Character design</div>
+    </section>
+
+    <!-- 3. 个人能力展示 (左侧文字，右侧图) -->
+    <section class="profile-section">
+        <div class="ability-block">
+            <div class="text-lines">
+                <div class="section-header">Personal ability</div>
+                <div class="text-line"></div>
+                <div class="text-line"></div>
+                <div class="text-line"></div>
+                <div class="text-line short"></div>
+            </div>
+            <div class="square-box"></div>
+        </div>
+
+        <!-- 个人简介 (左侧图，右侧文字) -->
+        <div class="profile-block">
+            <div class="text-lines">
+                <div class="section-header">Personal Profile</div>
+                <div class="text-line"></div>
+                <div class="text-line"></div>
+                <div class="text-line short"></div>
+            </div>
+            <div class="square-box"></div>
+        </div>
+    </section>
+
+    <!-- 4. 视频展示区 -->
+    <section class="video-section">
+        <div class="section-header">Video editing</div>
+        <div class="video-player">
+            <span class="play-icon">▶</span>
+        </div>
+    </section>
+
+    <!-- 5. 作品/角色设计展示 -->
+    <section class="work-section">
+        <div class="section-header" style="color: white;">Work/Worldview<br>Character design</div>
+        <div class="work-grid">
+            <!-- 左列：竖向方块 -->
+            <div class="col-1">
+                <div></div><div></div><div></div>
+            </div>
+            <!-- 中列：圆形图标 -->
+            <div class="col-2">
+                <div></div><div></div><div></div><div></div>
+            </div>
+            <!-- 右列：四宫格 -->
+            <div class="col-3">
+                <div></div><div></div>
+                <div></div><div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 底部区域 -->
+    <footer>
+        <h1>Contact,</h1>
+    </footer>
+
+</body>
+</html>
